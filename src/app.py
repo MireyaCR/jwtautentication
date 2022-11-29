@@ -11,7 +11,6 @@ from api.models import db,User
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
-from flask_jwt_extended import create_access_token
 
 #from models import Person
 
@@ -64,7 +63,7 @@ def serve_any_other_file(path):
     response.cache_control.max_age = 0 # avoid cache memory
     return response
 
-@app.route('/<signup>', methods=['POST'])
+@app.route('/signup', methods=['POST'])
 def signup():
     new_user={}
     body=request.get_json()
